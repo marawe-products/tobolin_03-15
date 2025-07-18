@@ -86,14 +86,18 @@
       border-radius: 50%;
       width: 40px;
       height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: block;
+      position: relative;       /* Basis für absolute Positionierung des Icons */
       text-decoration: none;
     }
     .social-icons a i {
-      font-size: 1.2rem;
-      color: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.2rem;        /* Icon-Größe */
+      color: #fff;              /* weiß */
+      pointer-events: none;     /* Klicks gehen an das <a> */
     }
     .social-icons a:hover {
       background-color: #256528;
@@ -134,10 +138,18 @@
       <a href="#" class="btn">Öffnen</a>
     </div>
     <div class="social-icons">
-      <a href="https://www.facebook.com/TobolinBauChemie/?locale=de_DE" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.instagram.com/tobolin_smarte_bauprodukte/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://de.pinterest.com/tobolin_marawe/" target="_blank" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
-      <a href="https://www.youtube.com/@tobolin1411" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.facebook.com/TobolinBauChemie/?locale=de_DE" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f" title="Facebook"></i>
+      </a>
+      <a href="https://www.instagram.com/tobolin_smarte_bauprodukte/" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram" title="Instagram"></i>
+      </a>
+      <a href="https://de.pinterest.com/tobolin_marawe/" target="_blank" aria-label="Pinterest">
+        <i class="fab fa-pinterest-p" title="Pinterest"></i>
+      </a>
+      <a href="https://www.youtube.com/@tobolin1411" target="_blank" aria-label="YouTube">
+        <i class="fab fa-youtube" title="YouTube"></i>
+      </a>
     </div>
   </main>
   <footer>
