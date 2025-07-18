@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PRODUKTINFORMATIONEN</title>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papLF++xYlIhV1R5iMVV6ckgZp3yJ7F+6mFvUh++9iIuApAdEZwHmwv1TKEJv3XY9qoh4dU9dcusL7ueN6KjUw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     html {
       background-color: #e0e0e0;
@@ -36,7 +37,7 @@
       text-align: right;
       flex: 1;
       color: black;
-      font-size: clamp(1.2rem, 6vw, 2rem); /* dynamisch von 1.2rem bis 2rem */
+      font-size: clamp(1.2rem, 6vw, 2rem);
     }
     main {
       padding: 1rem;
@@ -74,6 +75,29 @@
     .btn:hover {
       background-color: #256528;
     }
+    .social-icons {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .social-icons a {
+      background-color: #2e7d32;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    .social-icons a i {
+      font-size: 1.2rem;
+      color: white;
+    }
+    .social-icons a:hover {
+      background-color: #256528;
+    }
     footer {
       text-align: center;
       font-size: 0.75rem;
@@ -91,15 +115,15 @@
   <main>
     <div class="card">
       <h2>Etikett</h2>
-      <a href="de_etikett_03-15-01500.pdf" class="btn">Öffnen</a>
+      <a href="#" class="btn">Öffnen</a>
     </div>
     <div class="card">
       <h2>Sicherheitsdatenblatt</h2>
-      <a href="de_msds_2025-05-15_0315.pdf" class="btn">Öffnen</a>
+      <a href="#" class="btn">Öffnen</a>
     </div>
     <div class="card">
       <h2>Technisches Merkblatt</h2>
-      <a href="de_technisches-merkblatt_03-15.pdf" class="btn">Öffnen</a>
+      <a href="#" class="btn">Öffnen</a>
     </div>
     <div class="card">
       <h2>Gebrauchsanleitung</h2>
@@ -107,7 +131,13 @@
     </div>
     <div class="card">
       <h2>Risikoanalyse</h2>
-      <a href="03-15_Spezialhaftgrund_Risikobewertung.pdf" class="btn">Öffnen</a>
+      <a href="#" class="btn">Öffnen</a>
+    </div>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/TobolinBauChemie/?locale=de_DE" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/tobolin_smarte_bauprodukte/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://de.pinterest.com/tobolin_marawe/" target="_blank" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+      <a href="https://www.youtube.com/@tobolin1411" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
     </div>
   </main>
   <footer>
