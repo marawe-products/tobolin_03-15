@@ -75,6 +75,8 @@
     .btn:hover {
       background-color: #256528;
     }
+
+    /* NEU: Flex-Centering für die Icons */
     .social-icons {
       margin-top: 1rem;
       display: flex;
@@ -82,26 +84,24 @@
       gap: 1rem;
     }
     .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: #2e7d32;
       border-radius: 50%;
       width: 40px;
       height: 40px;
-      display: block;
-      position: relative;       /* Basis für absolute Positionierung des Icons */
       text-decoration: none;
     }
     .social-icons a i {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1.2rem;        /* Icon-Größe */
-      color: #fff;              /* weiß */
-      pointer-events: none;     /* Klicks gehen an das <a> */
+      font-size: 1.2rem;
+      color: #fff;
+      line-height: 1;
     }
     .social-icons a:hover {
       background-color: #256528;
     }
+
     footer {
       text-align: center;
       font-size: 0.75rem;
@@ -137,6 +137,7 @@
       <h2>Risikoanalyse</h2>
       <a href="#" class="btn">Öffnen</a>
     </div>
+
     <div class="social-icons">
       <a href="https://www.facebook.com/TobolinBauChemie/?locale=de_DE" target="_blank" aria-label="Facebook">
         <i class="fab fa-facebook-f" title="Facebook"></i>
