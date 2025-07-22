@@ -30,9 +30,7 @@
       pointer-events: none;
       z-index: -1;
     }
-    .header-stripes .stripe {
-      flex: 1;
-    }
+    .header-stripes .stripe { flex: 1; }
     .header-stripes .stripe1 {
       background: linear-gradient(to bottom, #2FB24B 0%, rgba(47,178,75,0) 75%);
     }
@@ -42,6 +40,7 @@
     .header-stripes .stripe3 {
       background: linear-gradient(to bottom, #000000 0%, rgba(0,0,0,0) 75%);
     }
+
     header {
       position: relative;
       padding: 3rem 1.5rem;
@@ -61,6 +60,14 @@
       flex: 1;
       color: #000;
       font-size: clamp(1.2rem, 6vw, 2rem);
+    }
+
+    /* deaktiviert alle automatisch erstellten tel:-Links */
+    a[href^="tel:"] {
+      color: inherit !important;
+      text-decoration: none !important;
+      pointer-events: none !important;
+      cursor: default !important;
     }
 
     /* Produkt-Widget direkt unter der Überschrift */
