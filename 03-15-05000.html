@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Verhindert automatische Telefon-Erkennung -->
+  <meta name="format-detection" content="telephone=no">
   <title>tobolin_03-15-05000</title>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&amp;display=swap" rel="stylesheet">
   <style>
     html { background-color: #e0e0e0; }
     body {
+      position: relative;
       font-family: 'Source Sans Pro', sans-serif;
       margin: 0;
       padding: 0;
@@ -16,12 +19,36 @@
       flex-direction: column;
       background: linear-gradient(to bottom, #e0e0e0 0%, #f5f5f5 30%, #ffffff 100%);
     }
+    /* schmale Streifen unterhalb des Logos, im Hintergrund */
+    .header-stripes {
+      position: absolute;
+      top: calc(3rem + 60px);
+      left: 1.5rem;
+      width: 45px;
+      height: 100vh;
+      display: flex;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .header-stripes .stripe { flex: 1; }
+    .header-stripes .stripe1 {
+      background: linear-gradient(to bottom, #2FB24B 0%, rgba(47,178,75,0) 75%);
+    }
+    .header-stripes .stripe2 {
+      background: linear-gradient(to bottom, #652E8D 0%, rgba(101,46,141,0) 75%);
+    }
+    .header-stripes .stripe3 {
+      background: linear-gradient(to bottom, #000000 0%, rgba(0,0,0,0) 75%);
+    }
+
     header {
+      position: relative;
       padding: 3rem 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       background: transparent;
+      z-index: 1;
     }
     header img {
       height: 60px;
@@ -34,11 +61,57 @@
       color: #000;
       font-size: clamp(1.2rem, 6vw, 2rem);
     }
+
+    /* deaktiviert alle automatisch erstellten tel:-Links */
+    a[href^="tel:"] {
+      color: inherit !important;
+      text-decoration: none !important;
+      pointer-events: none !important;
+      cursor: default !important;
+    }
+
+    /* Produkt-Widget direkt unter der Überschrift */
+    .product-widget {
+      background: #fff;
+      border: 1px solid #ededed;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 auto 1rem;
+      padding: 1rem;
+      width: 90%;
+      max-width: 600px;
+      position: relative;
+      z-index: 1;
+    }
+    .product-widget .product-info {
+      flex: 1;
+    }
+    .product-widget .product-info .product-name {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0 0 0.25rem;
+    }
+    .product-widget .product-info .product-number {
+      font-size: 0.875rem;
+      color: #555;
+      margin: 0;
+    }
+    .product-widget .product-image img {
+      max-width: 80px;
+      height: auto;
+      margin-left: 1rem;
+      border-radius: 4px;
+    }
+
     main {
       padding: 1rem;
     }
     .card {
       background: #fff;
+      border: 1px solid #ededed;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       margin: 0 auto 1rem;
@@ -46,6 +119,8 @@
       width: 90%;
       max-width: 600px;
       text-align: left;
+      position: relative;
+      z-index: 1;
     }
     .card h2 {
       font-size: 1rem;
@@ -68,7 +143,6 @@
       background-color: #256528;
     }
 
-    /* Text zwischen Card und Icons */
     .social-text {
       text-align: center;
       color: #000;
@@ -76,14 +150,17 @@
       font-size: clamp(1rem, 4vw, 1.5rem);
       padding: 0 1rem;
       box-sizing: border-box;
+      position: relative;
+      z-index: 1;
     }
 
-    /* Social-Icons mit gleichem Abstand */
     .social-icons {
       margin: 2rem auto;
       display: flex;
       justify-content: center;
       gap: 0.5rem;
+      position: relative;
+      z-index: 1;
     }
     .social-icons a {
       display: flex;
@@ -109,7 +186,9 @@
       text-align: center;
       font-size: 0.75rem;
       color: #777;
-      padding: 0rem 0 0.75rem;
+      padding: 0 0 0.75rem;
+      position: relative;
+      z-index: 1;
     }
     footer .footer-content {
       max-width: 600px;
@@ -120,11 +199,28 @@
   </style>
 </head>
 <body>
+  <div class="header-stripes">
+    <div class="stripe stripe1"></div>
+    <div class="stripe stripe2"></div>
+    <div class="stripe stripe3"></div>
+  </div>
+
   <header>
     <img src="Tobolin_Digital.svg" alt="TOBOLIN Logo" />
     <h1>PRODUKTINFORMATIONEN</h1>
   </header>
+
   <main>
+    <div class="product-widget">
+      <div class="product-info">
+        <p class="product-name">TOBOLIN Spezialhaftgrund 5 L</p>
+        <p class="product-number">03&#8209;15&#8209;05000</p>
+      </div>
+      <div class="product-image">
+        <img src="#" alt="Produktbild TOBOLIN Spezialhaftgrund 5 L" />
+      </div>
+    </div>
+
     <div class="card">
       <h2>Etikett</h2>
       <a href="de_etikett_03-15-05000.pdf" class="btn">Öffnen</a>
@@ -143,7 +239,7 @@
     </div>
     <div class="card">
       <h2>Eine ehrliche Meinung von dir – tausend Dank von uns!</h2>
-      <a href="https://www.amazon.de/review/create-review/?asin=B0B1MKXJJ5" class="btn">Öffnen</a>
+      <a href="https://www.amazon.de/review/create-review/?asin=" class="btn">Öffnen</a>
     </div>
 
     <div class="social-text">
@@ -173,10 +269,12 @@
       <!-- YouTube -->
       <a href="https://www.youtube.com/@tobolin1411" target="_blank" aria-label="YouTube">
         <svg viewBox="0 0 576 512" aria-hidden="true">
-          <path d="M549.655 124.083c-6.281-23.648-24.781-42.242-48.438-48.572C458.688 64 288 64 288 64S117.312 64 74.783 75.511C51.125 81.832 32.625 100.436 26.281 124.083C16 162.702 16 256 16 256s0 93.298 10.281 131.917C32.625 411.567 51.125 430.171 74.783 436.501C117.312 448 288 448 288 448s170.688 0 213.217-11.499C524.875 430.171 543.375 411.567 556.281 388.917C566.562 349.298 566.562 256 566.562 256s0-93.298-10.281-131.917zM230.4 345.6V166.4l115.2 89.6-115.2 89.6z"/></svg>
+          <path d="M549.655 124.083c-6.281-23.648-24.781-42.242-48.438-48.572C458.688 64 288 64 288 64S117.312 64 74.783 75.511C51.125 81.832 32.625 100.436 26.281 124.083C16 162.702 16 256 16 256s0 93.298 10.281 131.917C32.625 411.567 51.125 430.171 74.783 436.501C117.312 448 288 448 288 448s170.688 0 213.217-11.499C524.875 430.171 543.375 411.567 556.281 388.917C566.562 349.298 566.562 256 566.562 256s0-93.298-10.281-131.917zM230.4 345.6V166.4l115.2 89.6-115.2 89.6z"/>
+        </svg>
       </a>
     </div>
   </main>
+
   <footer>
     <div class="footer-content">
       <span>MARAWE GmbH &amp; Co. KG • An der Irler Höhe 3b • 93055 Regensburg</span><br>
