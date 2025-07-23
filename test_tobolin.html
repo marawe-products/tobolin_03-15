@@ -194,7 +194,7 @@
     footer .footer-content {
   /* skaliert die Footer-Schrift zwischen 0.75rem und 1rem je nach Viewport-Breite */
   font-size: clamp(0.75rem, 1.2vw, 1rem);
-  /* verhindert ungewollte UmbrÃ¼che innerhalb der Zeilen (nur die <br> bleiben erhalten) */
+  /* verhindert ungewollte Umbrüche innerhalb der Zeilen (nur die <br> bleiben erhalten) */
   white-space: nowrap;
 }
   </style>
@@ -224,27 +224,27 @@
 
     <div class="card">
       <h2 data-i18n="card-etikett">Etikett</h2>
-      <a href="#" class="btn" data-i18n="btn-open">Ã–ffnen</a>
+      <a href="#" class="btn" data-i18n="btn-open">Öffnen</a>
     </div>
     <div class="card">
       <h2 data-i18n="card-sdb">Sicherheitsdatenblatt</h2>
-      <a href="#" class="btn" data-i18n="btn-open">Ã–ffnen</a>
+      <a href="#" class="btn" data-i18n="btn-open">Öffnen</a>
     </div>
     <div class="card">
       <h2 data-i18n="card-tm">Technisches Merkblatt</h2>
-      <a href="#" class="btn" data-i18n="btn-open">Ã–ffnen</a>
+      <a href="#" class="btn" data-i18n="btn-open">Öffnen</a>
     </div>
     <div class="card">
       <h2 data-i18n="card-ua">Gebrauchsanleitung</h2>
-      <a href="#" class="btn" data-i18n="btn-open">Ã–ffnen</a>
+      <a href="#" class="btn" data-i18n="btn-open">Öffnen</a>
     </div>
     <div class="card">
       <h2 data-i18n="card-ra">Risikoanalyse</h2>
-      <a href="#" class="btn" data-i18n="btn-open">Ã–ffnen</a>
+      <a href="#" class="btn" data-i18n="btn-open">Öffnen</a>
     </div>
     <div class="card">
-      <h2 data-i18n="card-review-title">Eine ehrliche Meinung von dir â€“ tausend Dank von uns!</h2>
-      <a id="review-link" href="#" class="btn" data-i18n="btn-open">Ã–ffnen</a>
+      <h2 data-i18n="card-review-title">Eine ehrliche Meinung von dir – tausend Dank von uns!</h2>
+      <a id="review-link" href="#" class="btn" data-i18n="btn-open">Öffnen</a>
     </div>
 
     <div class="social-text">
@@ -282,16 +282,16 @@
     <div class="language-selector">
       <label for="lang-select" data-i18n="label-language">Sprache:</label>
       <select id="lang-select">
-        <option value="de">ðŸ‡©ðŸ‡ª Deutsch</option>
+        <option value="de">🇩🇪 Deutsch</option>
       </select>
     </div>
   </main>
 
   <footer>
     <div class="footer-content">
-      <span data-i18n="footer-line1">MARAWE GmbH &amp; Co. KG â€¢ An der Irler HÃ¶he 3b â€¢ 93055 Regensburg</span><br>
-      <span data-i18n="footer-line2">Tel: +49 941 37847200 â€¢ E-Mail: tobolin@marawe.de â€¢ www.tobolin.de</span><br><br>
-      <span data-i18n="footer-line3">Copyright Â© TOBOLIN â€“ Alle Rechte vorbehalten</span><br>
+      <span data-i18n="footer-line1">MARAWE GmbH &amp; Co. KG • An der Irler Höhe 3b • 93055 Regensburg</span><br>
+      <span data-i18n="footer-line2">Tel: +49 941 37847200 • E-Mail: tobolin@marawe.de • www.tobolin.de</span><br><br>
+      <span data-i18n="footer-line3">Copyright © TOBOLIN – Alle Rechte vorbehalten</span><br>
     </div>
   </footer>
 
@@ -306,14 +306,14 @@
         'card-tm': 'Technisches Merkblatt',
         'card-ua': 'Gebrauchsanleitung',
         'card-ra': 'Risikoanalyse',
-        'card-review-title': 'Eine ehrliche Meinung von dir â€“ tausend Dank von uns!',
-        'btn-open': 'Ã–ffnen',
+        'card-review-title': 'Eine ehrliche Meinung von dir – tausend Dank von uns!',
+        'btn-open': 'Öffnen',
         'label-language': 'Sprache:',
         'social-line1': 'Wachse mit uns und werde Teil der Community!',
         'social-line2': 'Das TOBOLIN-Team sagt Danke!',
-        'footer-line1': 'MARAWE GmbH & Co. KG â€¢ An der Irler HÃ¶he 3b â€¢ 93055 Regensburg',
-        'footer-line2': 'Tel: +49 941 37847200 â€¢ E-Mail: tobolin@marawe.de â€¢ www.tobolin.de',
-        'footer-line3': 'Copyright Â© TOBOLIN â€“ Alle Rechte vorbehalten',
+        'footer-line1': 'MARAWE GmbH & Co. KG • An der Irler Höhe 3b • 93055 Regensburg',
+        'footer-line2': 'Tel: +49 941 37847200 • E-Mail: tobolin@marawe.de • www.tobolin.de',
+        'footer-line3': 'Copyright © TOBOLIN – Alle Rechte vorbehalten',
         'review-link': 'https://www.amazon.de/review/create-review/?asin='
       },
     };
@@ -353,7 +353,7 @@
     document.getElementById('lang-select').addEventListener('change', e => {
   const lang = e.target.value;
   updateContent(lang);
-  // GewÃ¤hlte Sprache speichern
+  // Gewählte Sprache speichern
   localStorage.setItem('lang', lang);
 });
 
