@@ -191,6 +191,12 @@
       padding: 0.5rem;
       font-size: 1rem;
     }
+    footer .footer-content {
+  /* skaliert die Footer-Schrift zwischen 0.75rem und 1rem je nach Viewport-Breite */
+  font-size: clamp(0.75rem, 1.2vw, 1rem);
+  /* verhindert ungewollte Umbrüche innerhalb der Zeilen (nur die <br> bleiben erhalten) */
+  white-space: nowrap;
+}
   </style>
 </head>
 <body>
