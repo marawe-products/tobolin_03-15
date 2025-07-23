@@ -453,8 +453,11 @@
     }
 
     document.getElementById('lang-select').addEventListener('change', e => {
-      updateContent(e.target.value);
-    });
+  const lang = e.target.value;
+  updateContent(lang);
+  // Gewählte Sprache speichern
+  localStorage.setItem('lang', lang);
+});
 
     // Aus localStorage holen (sonst 'de' als Default)
 const storedLang = localStorage.getItem('lang') || 'de';
