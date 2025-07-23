@@ -8,7 +8,11 @@
   <title>tobolin_XX-XX-XXXXX</title>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&amp;display=swap" rel="stylesheet">
   <style>
-    html { background-color: #e0e0e0; }
+    /* Fluid root font-size: passt sich je nach Viewport-Breite an */
+    html {
+      background-color: #e0e0e0;
+      font-size: clamp(14px, 2vw, 18px);
+    }
     body {
       position: relative;
       font-family: 'Source Sans Pro', sans-serif;
@@ -21,9 +25,9 @@
     }
     .header-stripes {
       position: absolute;
-      top: calc(3rem + 60px);
+      top: calc(3rem + 3.75rem); /* 3rem padding + header-img height */
       left: 1.5rem;
-      width: 45px;
+      width: 2.813rem; /* 45px ≈ 2.813rem */
       height: 100vh;
       display: flex;
       pointer-events: none;
@@ -43,13 +47,18 @@
       background: transparent;
       z-index: 1;
     }
-    header img { height: 60px; margin-right: 1rem; }
+    header img {
+      height: 3.75rem; /* 60px ≈ 3.75rem */
+      margin-right: 1rem;
+    }
     header h1 {
       margin: 0;
       text-align: right;
       flex: 1;
       color: #000;
       font-size: clamp(1.2rem, 6vw, 2rem);
+      white-space: nowrap;
+      overflow: hidden;
     }
 
     a[href^="tel:"] {
@@ -62,8 +71,8 @@
     .product-widget {
       background: #fff;
       border: 1px solid #ededed;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      border-radius: 0.5rem;
+      box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -76,28 +85,28 @@
     }
     .product-widget .product-info { flex: 1; }
     .product-widget .product-info .product-name {
-      font-size: 1.25rem;
+      font-size: clamp(1rem, 4vw, 1.25rem);
       font-weight: 600;
       margin: 0 0 0.25rem;
     }
     .product-widget .product-info .product-number {
-      font-size: 0.875rem;
+      font-size: clamp(0.75rem, 2.5vw, 0.875rem);
       color: #555;
       margin: 0;
     }
     .product-widget .product-image img {
-      max-width: 80px;
+      max-width: 5rem; /* 80px ≈ 5rem */
       height: auto;
       margin-left: 1rem;
-      border-radius: 4px;
+      border-radius: 0.25rem;
     }
 
     main { padding: 1rem; }
     .card {
       background: #fff;
       border: 1px solid #ededed;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      border-radius: 0.5rem;
+      box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
       margin: 0 auto 1rem;
       padding: 1rem;
       width: 90%;
@@ -107,7 +116,7 @@
       z-index: 1;
     }
     .card h2 {
-      font-size: 1rem;
+      font-size: clamp(0.875rem, 3vw, 1rem);
       margin: 0 0 0.75rem;
       color: #000;
     }
@@ -117,9 +126,9 @@
       color: #fff;
       padding: 0.5rem 1.5rem;
       border: none;
-      border-radius: 4px;
+      border-radius: 0.25rem;
       text-decoration: none;
-      font-size: 1rem;
+      font-size: clamp(0.875rem, 3vw, 1rem);
       width: fit-content;
       margin: 0 auto;
     }
@@ -150,12 +159,12 @@
       justify-content: center;
       background-color: #2FB24B;
       border-radius: 50%;
-      width: 64px;
-      height: 64px;
+      width: 4rem; /* 64px ≈ 4rem */
+      height: 4rem;
       text-decoration: none;
     }
     .social-icons a svg {
-      height: 36px;
+      height: 2.25rem; /* 36px ≈ 2.25rem */
       width: auto;
       display: block;
       fill: #fff;
@@ -186,10 +195,11 @@
     .language-selector label {
       margin-right: 0.5rem;
       font-weight: 600;
+      font-size: clamp(0.875rem, 3vw, 1rem);
     }
     .language-selector select {
       padding: 0.5rem;
-      font-size: 1rem;
+      font-size: clamp(0.875rem, 3vw, 1rem);
     }
   </style>
 </head>
@@ -288,10 +298,7 @@
   <footer>
     <div class="footer-content">
       <span data-i18n="footer-line1">MARAWE GmbH &amp; Co. KG • An der Irler Höhe 3b • 93055 Regensburg</span><br>
-      <span data-i18n="footer-line2">Tel: +49 941 37847200 • E-Mail: tobolin@marawe.de • www.tobolin.de</span><br><br>
-      <span data-i18n="footer-line3">Copyright © TOBOLIN – Alle Rechte vorbehalten</span><br>
-    </div>
-  </footer>
+      <span data-i18n="footer-line2">Tel: +49 941 37847200 • E-Mail: tobolin@marawe.de • www.tobolin.de</span><br><br>      <span data-i18n="footer-line3">Copyright © TOBOLIN – Alle Rechte vorbehalten</span><br>    </div>  </footer>
 
   <script>
     const translations = {
@@ -393,41 +400,11 @@
     };
 
     const docPaths = {
-      de: {
-        'card-etikett': 'docs/de/etikett.pdf',
-        'card-sdb':    'docs/de/sicherheitsdatenblatt.pdf',
-        'card-tm':     'docs/de/technisches-merkblatt.pdf',
-        'card-ua':     'docs/de/gebrauchsanleitung.pdf',
-        'card-ra':     'docs/de/risikoanalyse.pdf'
-      },
-      en: {
-        'card-etikett': 'docs/en/label.pdf',
-        'card-sdb':    'docs/en/safety-data-sheet.pdf',
-        'card-tm':     'docs/en/technical-data-sheet.pdf',
-        'card-ua':     'docs/en/user-manual.pdf',
-        'card-ra':     'docs/en/risk-analysis.pdf'
-      },
-      it: {
-        'card-etikett': 'docs/it/etichetta.pdf',
-        'card-sdb':    'docs/it/scheda-sicurezza.pdf',
-        'card-tm':     'docs/it/scheda-tecnica.pdf',
-        'card-ua':     'docs/it/manuale-uso.pdf',
-        'card-ra':     'docs/it/analisi-rischi.pdf'
-      },
-      fr: {
-        'card-etikett': 'docs/fr/etiquette.pdf',
-        'card-sdb':    'docs/fr/fiche-securite.pdf',
-        'card-tm':     'docs/fr/fiche-technique.pdf',
-        'card-ua':     'docs/fr/manuel-utilisation.pdf',
-        'card-ra':     'docs/fr/analyse-risques.pdf'
-      },
-      es: {
-        'card-etikett': 'docs/es/etiqueta.pdf',
-        'card-sdb':    'docs/es/hoja-seguridad.pdf',
-        'card-tm':     'docs/es/hoja-tecnica.pdf',
-        'card-ua':     'docs/es/manual-uso.pdf',
-        'card-ra':     'docs/es/analisis-riesgos.pdf'
-      }
+      de: { 'card-etikett': 'docs/de/etikett.pdf', 'card-sdb': 'docs/de/sicherheitsdatenblatt.pdf', 'card-tm': 'docs/de/technisches-merkblatt.pdf', 'card-ua': 'docs/de/gebrauchsanleitung.pdf', 'card-ra': 'docs/de/risikoanalyse.pdf' },
+      en: { 'card-etikett': 'docs/en/label.pdf', 'card-sdb': 'docs/en/safety-data-sheet.pdf', 'card-tm': 'docs/en/technical-data-sheet.pdf', 'card-ua': 'docs/en/user-manual.pdf', 'card-ra': 'docs/en/risk-analysis.pdf' },
+      it: { 'card-etikett': 'docs/it/etichetta.pdf', 'card-sdb': 'docs/it/scheda-sicurezza.pdf', 'card-tm': 'docs/it/scheda-tecnica.pdf', 'card-ua': 'docs/it/manuale-uso.pdf', 'card-ra': 'docs/it/analisi-rischi.pdf' },
+      fr: { 'card-etikett': 'docs/fr/etiquette.pdf', 'card-sdb': 'docs/fr/fiche-securite.pdf', 'card-tm': 'docs/fr/fiche-technique.pdf', 'card-ua': 'docs/fr/manuel-utilisation.pdf', 'card-ra': 'docs/fr/analyse-risques.pdf' },
+      es: { 'card-etikett': 'docs/es/etiqueta.pdf', 'card-sdb': 'docs/es/hoja-seguridad.pdf', 'card-tm': 'docs/es/hoja-tecnica.pdf', 'card-ua': 'docs/es/manual-uso.pdf', 'card-ra': 'docs/es/analisis-riesgos.pdf' }
     };
 
     function updateContent(lang) {
@@ -437,11 +414,9 @@
           el.textContent = translations[lang][key];
         }
       });
-      // Review-Link href
       if (translations[lang] && translations[lang]['review-link']) {
         document.getElementById('review-link').href = translations[lang]['review-link'];
       }
-      // Dokument-Links
       document.querySelectorAll('.card').forEach(card => {
         const key = card.querySelector('[data-i18n]').getAttribute('data-i18n');
         const link = card.querySelector('a.btn');
@@ -456,7 +431,7 @@
       updateContent(e.target.value);
     });
 
-    // Initial deutsch setzen
+    // Initial deutsch
     updateContent('de');
   </script>
 </body>
