@@ -456,8 +456,15 @@
       updateContent(e.target.value);
     });
 
-    // Initial deutsch setzen
-    updateContent('de');
+    // Aus localStorage holen (sonst 'de' als Default)
+const storedLang = localStorage.getItem('lang') || 'de';
+
+// Select auf gespeicherte Sprache setzen
+document.getElementById('lang-select').value = storedLang;
+
+// Content initial mit gespeicherter Sprache laden
+updateContent(storedLang);
+
   </script>
 </body>
 </html>
