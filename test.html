@@ -8,7 +8,8 @@
   <title>tobolin_XX-XX-XXXXX</title>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&amp;display=swap" rel="stylesheet">
   <style>
-    html { background-color: #e0e0e0; }
+    html { background-color: #e0e0e0;
+            font size: clamp(14px, 2vw, 16px); }
     body {
       position: relative;
       font-family: 'Source Sans Pro', sans-serif;
@@ -25,7 +26,7 @@
       position: absolute;
       top: calc(3rem + 60px);
       left: 1.5rem;
-      width: 45px;
+      width: clamp(30px, 5vw, 45px);
       height: 100vh;
       display: flex;
       pointer-events: none;
@@ -88,11 +89,24 @@
       margin: 0;
     }
     .product-widget .product-image img {
-      max-width: 80px;
+      max-width: clamp(50px, 12vw, 80px);
       height: auto;
       margin-left: 1rem;
       border-radius: 4px;
     }
+@media (max-width: 480px) {
+  header {
+    padding: 2rem 1rem;
+  }
+  .product-widget,
+  .card {
+    padding: 0.75rem;
+  }
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
 
     main { padding: 1rem; }
     .card {
