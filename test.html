@@ -57,8 +57,8 @@
       text-align: right;
       flex: 1;
       color: #000;
-      /* Default-Clamp, wird dann per JS feinjustiert */
-      font-size: clamp(0.75rem, 4vw, 2.5rem);
+      /* Default-Clamp: größer gemacht, schrumpft bei Bedarf per JS */
+      font-size: clamp(1.25rem, 6vw, 3rem);
       white-space: nowrap;
       overflow: hidden;
     }
@@ -322,7 +322,7 @@
         'label-language': 'Sprache:',
         'social-line1': 'Wachse mit uns und werde Teil der Community!',
         'social-line2': 'Das TOBOLIN-Team sagt Danke!',
-        'footer-line1': 'MARAWE GmbH &; Co. KG • An der Irler Höhe 3b • 93055 Regensburg',
+        'footer-line1': 'MARAWE GmbH &amp; Co. KG • An der Irler Höhe 3b • 93055 Regensburg',
         'footer-line2': 'Tel: +49 941 37847200 • E-Mail: tobolin@marawe.de • www.tobolin.de',
         'footer-line3': 'Copyright © TOBOLIN – Alle Rechte vorbehalten',
         'review-link': 'https://www.amazon.de/review/create-review/?asin='
@@ -461,11 +461,9 @@
     function fitHeader() {
       const h1 = document.querySelector('header h1');
       const containerWidth = h1.parentElement.clientWidth;
-      // Reset auf CSS-Clamp
-      h1.style.fontSize = '';
+      h1.style.fontSize = ''; // Reset auf CSS-Clamp
       let fontSize = parseFloat(window.getComputedStyle(h1).fontSize);
-      // Solange zu breit, jeweils um 1px verkleinern
-      while (h1.scrollWidth > containerWidth && fontSize > 8) {
+      while (h1.scrollWidth > containerWidth && fontSize > 12) {
         fontSize -= 1;
         h1.style.fontSize = fontSize + 'px';
       }
