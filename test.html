@@ -8,8 +8,7 @@
   <title>tobolin_XX-XX-XXXXX</title>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&amp;display=swap" rel="stylesheet">
   <style>
-    html { background-color: #e0e0e0;
-            font size: clamp(14px, 2vw, 16px); }
+    html { background-color: #e0e0e0; }
     body {
       position: relative;
       font-family: 'Source Sans Pro', sans-serif;
@@ -19,14 +18,12 @@
       display: flex;
       flex-direction: column;
       background: linear-gradient(to bottom, #e0e0e0 0%, #f5f5f5 30%, #ffffff 100%);
-      /* Neuer Eintrag für dynamisches Skalieren */
-      transform-origin: top left;
     }
     .header-stripes {
       position: absolute;
       top: calc(3rem + 60px);
       left: 1.5rem;
-      width: clamp(30px, 5vw, 45px);
+      width: 45px;
       height: 100vh;
       display: flex;
       pointer-events: none;
@@ -89,24 +86,11 @@
       margin: 0;
     }
     .product-widget .product-image img {
-      max-width: clamp(50px, 12vw, 80px);
+      max-width: 80px;
       height: auto;
       margin-left: 1rem;
       border-radius: 4px;
     }
-@media (max-width: 480px) {
-  header {
-    padding: 2rem 1rem;
-  }
-  .product-widget,
-  .card {
-    padding: 0.75rem;
-  }
-  .btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-  }
-}
 
     main { padding: 1rem; }
     .card {
@@ -453,9 +437,11 @@
           el.textContent = translations[lang][key];
         }
       });
+      // Review-Link href
       if (translations[lang] && translations[lang]['review-link']) {
         document.getElementById('review-link').href = translations[lang]['review-link'];
       }
+      // Dokument-Links
       document.querySelectorAll('.card').forEach(card => {
         const key = card.querySelector('[data-i18n]').getAttribute('data-i18n');
         const link = card.querySelector('a.btn');
@@ -467,25 +453,21 @@
     }
 
     document.getElementById('lang-select').addEventListener('change', e => {
-      const lang = e.target.value;
-      updateContent(lang);
-      localStorage.setItem('lang', lang);
-    });
+  const lang = e.target.value;
+  updateContent(lang);
+  // Gewählte Sprache speichern
+  localStorage.setItem('lang', lang);
+});
 
-    // Sprache aus localStorage oder Default 'de'
-    const storedLang = localStorage.getItem('lang') || 'de';
-    document.getElementById('lang-select').value = storedLang;
-    updateContent(storedLang);
+    // Aus localStorage holen (sonst 'de' als Default)
+const storedLang = localStorage.getItem('lang') || 'de';
 
-    // --- NEUER CODE für dynamisches Skalieren ---
-    function scaleContent() {
-      const designWidth = 600; // Basis-Breite des Layouts
-      const scale = window.innerWidth / designWidth;
-      document.body.style.width = designWidth + 'px';
-      document.body.style.transform = 'scale(' + scale + ')';
-    }
-    window.addEventListener('load', scaleContent);
-    window.addEventListener('resize', scaleContent);
+// Select auf gespeicherte Sprache setzen
+document.getElementById('lang-select').value = storedLang;
+
+// Content initial mit gespeicherter Sprache laden
+updateContent(storedLang);
+
   </script>
 </body>
 </html>
