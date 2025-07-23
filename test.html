@@ -41,7 +41,8 @@
       justify-content: space-between;
       z-index: 1;
     }
-    header img { height: clamp(3rem, 10vw, 5rem); margin-right: 1rem; }
+    /* Logo-Höhe wieder auf 60px */
+    header img { height: 60px; margin-right: 1rem; }
     header h1 {
       margin: 0;
       text-align: right;
@@ -61,13 +62,14 @@
       margin: 1rem auto;
       padding: clamp(1rem, 5vw, 1.5rem);
       width: 90%;
-      max-width: clamp(300px, 60vw, 600px);
+      max-width: 600px; /* wieder Ursprungsgröße */
       z-index: 1;
     }
     .product-info { flex: 1; }
     .product-name { font-size: 1.25rem; font-weight: 600; margin: 0 0 0.25rem; }
     .product-number { font-size: 0.875rem; color: #555; margin: 0; }
-    .product-image img { max-width: clamp(4rem, 12vw, 6rem); height: auto; border-radius: 4px; }
+    /* Produktbild zurück auf max-width 80px */
+    .product-image img { max-width: 80px; height: auto; border-radius: 4px; }
     main { padding: 1rem; }
     .card {
       background: #fff;
@@ -172,10 +174,12 @@
       <h2 data-i18n="card-review-title">Eine ehrliche Meinung von dir – tausend Dank von uns!</h2>
       <a id="review-link" href="#" class="btn" data-i18n="btn-open">Öffnen</a>
     </div>
+
     <div class="social-text">
       <span data-i18n="social-line1">Wachse mit uns und werde Teil der Community!</span><br>
       <span data-i18n="social-line2">Das TOBOLIN-Team sagt Danke!</span>
     </div>
+
     <div class="social-icons">
       <!-- Facebook -->
       <a href="https://www.facebook.com/TobolinBauChemie/?locale=de_DE" target="_blank" aria-label="Facebook">
