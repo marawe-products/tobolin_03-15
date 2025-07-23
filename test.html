@@ -453,7 +453,7 @@
       // Reset auf CSS-Clamp
       h1.style.fontSize = '';
       let fontSize = parseFloat(window.getComputedStyle(h1).fontSize);
-      const minSize = 12; // px entspricht ca. 0.75rem
+      const minSize = 10; // px entspricht ca. 0.75rem
       while (h1.scrollWidth > containerWidth && fontSize > minSize) {
         fontSize -= 1;
         h1.style.fontSize = fontSize + 'px';
