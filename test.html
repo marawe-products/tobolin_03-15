@@ -18,7 +18,7 @@
       font-family: 'Source Sans Pro', sans-serif;
       margin: 0;
       padding: 0;
-      color: #000;
+      color: #000;  /* jetzt wirklich schwarz */
       display: flex;
       flex-direction: column;
       background: linear-gradient(to bottom, #e0e0e0 0%, #f5f5f5 30%, #ffffff 100%);
@@ -56,7 +56,8 @@
       text-align: right;
       flex: 1;
       color: #000;
-      font-size: clamp(1.2rem, 6vw, 2rem);
+      /* Dynamische Schriftgröße, schrumpft auf kleineren Displays */
+      font-size: clamp(1rem, 8vw, 2rem);
       white-space: nowrap;
       overflow: hidden;
     }
@@ -88,6 +89,7 @@
       font-size: clamp(1rem, 4vw, 1.25rem);
       font-weight: 600;
       margin: 0 0 0.25rem;
+      color: #000;
     }
     .product-widget .product-info .product-number {
       font-size: clamp(0.75rem, 2.5vw, 0.875rem);
@@ -298,7 +300,10 @@
   <footer>
     <div class="footer-content">
       <span data-i18n="footer-line1">MARAWE GmbH &amp; Co. KG • An der Irler Höhe 3b • 93055 Regensburg</span><br>
-      <span data-i18n="footer-line2">Tel: +49 941 37847200 • E-Mail: tobolin@marawe.de • www.tobolin.de</span><br><br>      <span data-i18n="footer-line3">Copyright © TOBOLIN – Alle Rechte vorbehalten</span><br>    </div>  </footer>
+      <span data-i18n="footer-line2">Tel: +49 941 37847200 • E-Mail: tobolin@marawe.de • www.tobolin.de</span><br><br>
+      <span data-i18n="footer-line3">Copyright © TOBOLIN – Alle Rechte vorbehalten</span><br>
+    </div>
+  </footer>
 
   <script>
     const translations = {
@@ -400,11 +405,41 @@
     };
 
     const docPaths = {
-      de: { 'card-etikett': 'docs/de/etikett.pdf', 'card-sdb': 'docs/de/sicherheitsdatenblatt.pdf', 'card-tm': 'docs/de/technisches-merkblatt.pdf', 'card-ua': 'docs/de/gebrauchsanleitung.pdf', 'card-ra': 'docs/de/risikoanalyse.pdf' },
-      en: { 'card-etikett': 'docs/en/label.pdf', 'card-sdb': 'docs/en/safety-data-sheet.pdf', 'card-tm': 'docs/en/technical-data-sheet.pdf', 'card-ua': 'docs/en/user-manual.pdf', 'card-ra': 'docs/en/risk-analysis.pdf' },
-      it: { 'card-etikett': 'docs/it/etichetta.pdf', 'card-sdb': 'docs/it/scheda-sicurezza.pdf', 'card-tm': 'docs/it/scheda-tecnica.pdf', 'card-ua': 'docs/it/manuale-uso.pdf', 'card-ra': 'docs/it/analisi-rischi.pdf' },
-      fr: { 'card-etikett': 'docs/fr/etiquette.pdf', 'card-sdb': 'docs/fr/fiche-securite.pdf', 'card-tm': 'docs/fr/fiche-technique.pdf', 'card-ua': 'docs/fr/manuel-utilisation.pdf', 'card-ra': 'docs/fr/analyse-risques.pdf' },
-      es: { 'card-etikett': 'docs/es/etiqueta.pdf', 'card-sdb': 'docs/es/hoja-seguridad.pdf', 'card-tm': 'docs/es/hoja-tecnica.pdf', 'card-ua': 'docs/es/manual-uso.pdf', 'card-ra': 'docs/es/analisis-riesgos.pdf' }
+      de: {
+        'card-etikett': 'docs/de/etikett.pdf',
+        'card-sdb':    'docs/de/sicherheitsdatenblatt.pdf',
+        'card-tm':     'docs/de/technisches-merkblatt.pdf',
+        'card-ua':     'docs/de/gebrauchsanleitung.pdf',
+        'card-ra':     'docs/de/risikoanalyse.pdf'
+      },
+      en: {
+        'card-etikett': 'docs/en/label.pdf',
+        'card-sdb':    'docs/en/safety-data-sheet.pdf',
+        'card-tm':     'docs/en/technical-data-sheet.pdf',
+        'card-ua':     'docs/en/user-manual.pdf',
+        'card-ra':     'docs/en/risk-analysis.pdf'
+      },
+      it: {
+        'card-etikett': 'docs/it/etichetta.pdf',
+        'card-sdb':    'docs/it/scheda-sicurezza.pdf',
+        'card-tm':     'docs/it/scheda-tecnica.pdf',
+        'card-ua':     'docs/it/manuale-uso.pdf',
+        'card-ra':     'docs/it/analisi-rischi.pdf'
+      },
+      fr: {
+        'card-etikett': 'docs/fr/etiquette.pdf',
+        'card-sdb':    'docs/fr/fiche-securite.pdf',
+        'card-tm':     'docs/fr/fiche-technique.pdf',
+        'card-ua':     'docs/fr/manuel-utilisation.pdf',
+        'card-ra':     'docs/fr/analyse-risques.pdf'
+      },
+      es: {
+        'card-etikett': 'docs/es/etiqueta.pdf',
+        'card-sdb':    'docs/es/hoja-seguridad.pdf',
+        'card-tm':     'docs/es/hoja-tecnica.pdf',
+        'card-ua':     'docs/es/manual-uso.pdf',
+        'card-ra':     'docs/es/analisis-riesgos.pdf'
+      }
     };
 
     function updateContent(lang) {
