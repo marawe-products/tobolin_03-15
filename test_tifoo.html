@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perfekt schräge gelbe Kante</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: white;
+      font-family: sans-serif;
+    }
+
+    .header-wrapper {
+      position: relative;
+    }
+
+    /* Blauer Header mit Schräge via transform */
+    .header {
+      height: 20vh;
+      min-height: 120px;
+      background: linear-gradient(to bottom, #033D6E, #015891);
+      transform: skewY(-1.6deg); /* exakt gleicher Winkel wie Gelb */
+      transform-origin: top left;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Gelber Streifen ebenfalls schräg */
+    .yellow-stripe {
+      height: 6px;
+      width: 100%;
+      background: #FAE100;
+      transform: skewY(-1.6deg);
+      transform-origin: top left;
+      box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25); /* Sichtbarer Schatten */
+      z-index: 3;
+      position: relative;
+    }
+
+    main {
+      padding: 2rem 1rem;
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-wrapper">
+    <div class="header"></div>
+    <div class="yellow-stripe"></div>
+  </div>
+
+  <main>
+    <p>Hier beginnt dein Seiteninhalt...</p>
+  </main>
+
+</body>
+</html>
