@@ -4,101 +4,59 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="format-detection" content="telephone=no">
-  <title>tifoo_XX-XX-XXXXX</title>
-  <!-- Einfach und ohne lokale Webfont-Ordner: Google Font "Poppins" einbinden -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>tobolin_XX-XX-XXXXX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&amp;display=swap" rel="stylesheet">
   <style>
-    * {
+    html { background-color: #000000; }
+    body {
+      position: relative;
+      font-family: 'Source Sans Pro', sans-serif;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-    html, body {
-      position: relative;
-      font-family: 'Poppins', sans-serif;
+      color: #000;
       display: flex;
       flex-direction: column;
-      background: white;
-      height: 100%;
+      background: linear-gradient(to bottom, #000000 0%, #1c1c1c 30%, #525252 100%);
     }
-    /* Zusätzlicher Abstand über dem Header */
-    .header-wrapper {
-      position: relative;
-      margin-top: 2.5rem; /* erhöht, um Header tiefer zu schieben */
-      height: 25vh;
-      min-height: 140px;
-      padding-top: env(safe-area-inset-top, 0px);
-    }
-    .header-bg {
+    .header-stripes {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 99.5%;
-      background: linear-gradient(to bottom, #212121, #454545);
-      transform: skewY(-1.6deg);
-      transform-origin: top left;
-      /* Schatteneffekt an oberer Kante */
-      box-shadow: 0 -5px 12px rgba(0, 0, 0, 0.25), 0 5px 12px rgba(0, 0, 0, 0.25);
-      z-index: 1;
+      top: calc(3rem + 60px);
+      left: 1.5rem;
+      width: 45px;
+      height: 100vh;
+      display: flex;
+      pointer-events: none;
+      z-index: -1;
     }
-    .yellow-stripe {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 6px;
-      background: #ff9900;
-      transform: skewY(-1.6deg);
-      transform-origin: top left;
-      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
-      z-index: 2;
-    }
+
     header {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      transform: translateY(-50%);
+      position: relative;
+      padding: 3rem 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 1.5rem;
       background: transparent;
-      z-index: 3;
+      z-index: 1;
     }
-    header img {
-      height: 45px; /* Logo etwas kleiner für Platz */
-      flex-shrink: 0;
-      margin-right: 1.5rem; /* Gleich mit padding-left für symmetrischen Abstand */
+    header img { height: 60px; margin-right: 1rem; }
+    header h1 {
+      margin: 0;
+      text-align: right;
+      flex: 1;
+      color: #ffffff;
+      font-size: clamp(1.2rem, 6vw, 2rem);
     }
+
     a[href^="tel:"] {
       color: inherit !important;
       text-decoration: none !important;
       pointer-events: none !important;
       cursor: default !important;
     }
-    header h1 {
-      margin: 0;
-      flex: 1 1 auto;
-      min-width: 0;
-      color: #fff;
-      text-align: right;
-      /* Dynamische Schriftgröße: wächst und schrumpft passend, aber maximal etwas reduziert, damit sie nicht zu weit nach rechts reicht */
-      font-size: clamp(1rem, 5vw, 1.8rem);
-      line-height: 1.2;
-      white-space: normal;
-      overflow: visible;
-      padding-right: 1rem; /* Sicherheitsabstand zum rechten Rand */
-    }
-    main {
-      padding: 2rem 1rem;
-      position: relative;
-      z-index: 1;
-    }
+
     .product-widget {
       background: #fff;
-      border: 1px solid #ff9900;
+      border: 1px solid #2FB24B;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       display: flex;
@@ -106,14 +64,12 @@
       justify-content: space-between;
       margin: 0 auto 1rem;
       padding: 1rem;
-      width: 100%;
+      width: 90%;
       max-width: 600px;
       position: relative;
       z-index: 1;
     }
-    .product-widget .product-info {
-      flex: 1;
-    }
+    .product-widget .product-info { flex: 1; }
     .product-widget .product-info .product-name {
       font-size: 1.25rem;
       font-weight: 700;
@@ -130,6 +86,8 @@
       margin-left: 1rem;
       border-radius: 4px;
     }
+
+    main { padding: 1rem; }
     .card {
       background: #fff;
       border: 1px solid #ededed;
@@ -137,7 +95,7 @@
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       margin: 0 auto 1rem;
       padding: 1rem;
-      width: 100%;
+      width: 90%;
       max-width: 600px;
       text-align: left;
       position: relative;
@@ -150,7 +108,7 @@
     }
     .btn {
       display: block;
-      background: #454545;
+      background: #2FB24B;
       color: #fff;
       padding: 0.5rem 1.5rem;
       border: none;
@@ -160,9 +118,8 @@
       width: fit-content;
       margin: 0 auto;
     }
-    .btn:hover {
-      background-color: #ff9900;
-    }
+    .btn:hover { background-color: #652E8D; }
+
     .social-text {
       text-align: center;
       color: #000;
@@ -173,6 +130,7 @@
       position: relative;
       z-index: 1;
     }
+
     .social-icons {
       margin: 2rem auto;
       display: flex;
@@ -185,7 +143,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #454545;
+      background-color: #2FB24B;
       border-radius: 50%;
       width: 64px;
       height: 64px;
@@ -197,9 +155,8 @@
       display: block;
       fill: #fff;
     }
-    .social-icons a:hover {
-      background-color: #ff9900;
-    }
+    .social-icons a:hover { background-color: #652E8D; }
+
     footer {
       text-align: center;
       font-size: 0.75rem;
@@ -213,15 +170,10 @@
       margin: 0 auto;
       padding: 0 1rem;
       box-sizing: border-box;
-      /* Dynamische Schriftgröße, passt sich an Viewport an, minimale Größe weiter verkleinert */
-      font-size: clamp(0.5rem, 2vw, 1rem);
-      text-align: center;
-    }
-    /* Einzelne Footer-Zeilen nicht umbrechen */
-    footer .footer-content span {
-      display: block;
+      font-size: clamp(0.75rem, 1.2vw, 1rem);
       white-space: nowrap;
     }
+
     .language-selector {
       text-align: center;
       margin: 1rem 0;
@@ -236,35 +188,15 @@
       padding: 0.5rem;
       font-size: 1rem;
     }
-    footer {
-    text-align: center;
-    font-size: 0.75rem;
-    color: #777;
-    padding: 0 0 0.75rem;
-    position: relative;
-    z-index: 1;
-    }
-    footer .footer-content {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 0 1rem;
-    box-sizing: border-box;
-    font-size: clamp(0.75rem, 1.2vw, 1rem);
-    /* entferne die Zeile white-space: nowrap; */
-    text-align: center;            /* fügt echtes Zeilen-Zentrieren hinzu */
-    }
-
   </style>
 </head>
 <body>
-  <div class="header-wrapper">
-    <div class="header-bg"></div>
-    <div class="yellow-stripe"></div>
-    <header>
-      <img src="Tifoo_Digital.svg" alt="Tifoo Logo" />
-      <h1 data-i18n="header-title">PRODUKTINFORMATIONEN</h1>
-    </header>
-  </div>
+
+  <header>
+    <img src="Tobolin_Digital.svg" alt="TOBOLIN Logo" />
+    <h1 data-i18n="header-title">PRODUKTINFORMATIONEN</h1>
+  </header>
+
   <main>
     <div class="product-widget">
       <div class="product-info">
@@ -276,6 +208,7 @@
       </div>
     </div>
 
+    <!-- Alle Karten rendern, Sichtbarkeit wird durch JS gesteuert -->
     <div class="card" data-card-key="card-etikett">
       <h2 data-i18n="card-etikett">Etikett</h2>
       <a href="#" class="btn" data-i18n="btn-open">Öffnen</a>
@@ -303,30 +236,30 @@
 
     <div class="social-text">
       <span data-i18n="social-line1">Wachse mit uns und werde Teil der Community!</span><br>
-      <span data-i18n="social-line2">Das TIFOO-Team sagt Danke!</span>
+      <span data-i18n="social-line2">Das TOBOLIN-Team sagt Danke!</span>
     </div>
 
     <div class="social-icons">
       <!-- Facebook -->
-      <a href="https://www.facebook.com/tifoo.galvanik/" target="_blank" aria-label="Facebook">
+      <a href="https://www.facebook.com/TobolinBauChemie/?locale=de_DE" target="_blank" aria-label="Facebook">
         <svg viewBox="0 0 320 512" aria-hidden="true">
           <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/>
         </svg>
       </a>
       <!-- Instagram -->
-      <a href="https://www.instagram.com/tifoogalvanik/?hl=de" target="_blank" aria-label="Instagram">
+      <a href="https://www.instagram.com/tobolin_smarte_bauprodukte/" target="_blank" aria-label="Instagram">
         <svg viewBox="0 0 448 512" aria-hidden="true">
           <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
         </svg>
       </a>
       <!-- Pinterest -->
-      <a href="https://de.pinterest.com/tifoogalvanik/" target="_blank" aria-label="Pinterest">
+      <a href="https://de.pinterest.com/tobolin_marawe/" target="_blank" aria-label="Pinterest">
         <svg viewBox="0 0 384 512" aria-hidden="true">
           <path d="M204 6.5C101.4 6.5 0 74.9 0 185.6 0 256 39.6 296 63.6 296c9.9 0 15.6-27.6 15.6-35.4 0-9.3-23.7-29.1-23.7-67.8 0-80.4 61.2-137.4 140.4-137.4 68.1 0 118.5 38.7 118.5 109.8 0 53.1-21.3 152.7-90.3 152.7-24.9 0-46.2-18-46.2-43.8 0-37.8 26.4-74.4 26.4-113.4 0-66.2-93.9-54.2-93.9 25.8 0 16.8 2.1 35.4 9.6 50.7-13.8 59.4-42 147.9-42 209.1 0 18.9 2.7 37.5 4.5 56.4 3.4 3.8 1.7 3.4 6.9 1.5 50.4-69 48.6-82.5 71.4-172.8 12.3 23.4 44.1 36 69.3 36 106.2 0 153.9-103.5 153.9-196.8C384 71.3 298.2 6.5 204 6.5z"/>
         </svg>
       </a>
       <!-- YouTube -->
-      <a href="https://www.youtube.com/user/TifooTech" target="_blank" aria-label="YouTube">
+      <a href="https://www.youtube.com/@tobolin1411" target="_blank" aria-label="YouTube">
         <svg viewBox="0 0 576 512" aria-hidden="true">
           <path d="M549.655 124.083c-6.281-23.648-24.781-42.242-48.438-48.572C458.688 64 288 64 288 64S117.312 64 74.783 75.511C51.125 81.832 32.625 100.436 26.281 124.083C16 162.702 16 256 16 256s0 93.298 10.281 131.917C32.625 411.567 51.125 430.171 74.783 436.501C117.312 448 288 448 288 448s170.688 0 213.217-11.499C524.875 430.171 543.375 411.567 556.281 388.917C566.562 349.298 566.562 256 566.562 256s0-93.298-10.281-131.917zM230.4 345.6V166.4l115.2 89.6-115.2 89.6z"/>
         </svg>
@@ -337,20 +270,22 @@
       <label for="lang-select" data-i18n="label-language">Sprache:</label>
       <select id="lang-select">
         <option value="de">🇩🇪 Deutsch</option>
-    	<option value="en">🇬🇧 English</option>
+	<option value="en">🇬🇧 English</option>
         <option value="it">🇮🇹 Italiano</option>
         <option value="fr">🇫🇷 Français</option>
         <option value="es">🇪🇸 Español</option>
       </select>
     </div>
   </main>
+
   <footer>
     <div class="footer-content">
-      <span data-i18n="footer-line1">MARAWE GmbH &amp; Co. KG • An der Irler Höhe 3b • 93055 Regensburg</span>
-      <span data-i18n="footer-line2">Tel: +49 941 37847200 • E-Mail: tifoo@marawe.de • www.tifoo.de</span><br>
-      <span data-i18n="footer-line3">Copyright © TIFOO – Alle Rechte vorbehalten</span><br>
+      <span data-i18n="footer-line1">MARAWE GmbH &amp; Co. KG • An der Irler Höhe 3b • 93055 Regensburg</span><br>
+      <span data-i18n="footer-line2">Tel: +49 941 37847200 • E-Mail: tobolin@marawe.de • www.tobolin.de</span><br><br>
+      <span data-i18n="footer-line3">Copyright © TOBOLIN – Alle Rechte vorbehalten</span><br>
     </div>
   </footer>
+
   <script>
     const translations = {
       de: {
@@ -366,10 +301,10 @@
         'btn-open': 'Öffnen',
         'label-language': 'Sprache:',
         'social-line1': 'Wachse mit uns und werde Teil der Community!',
-        'social-line2': 'Das TIFOO-Team sagt Danke!',
+        'social-line2': 'Das TOBOLIN-Team sagt Danke!',
         'footer-line1': 'MARAWE GmbH & Co. KG • An der Irler Höhe 3b • 93055 Regensburg',
-        'footer-line2': 'Tel: +49 941 37847200 • E-Mail: tifoo@marawe.de • www.tifoo.de',
-        'footer-line3': 'Copyright © TIFOO – Alle Rechte vorbehalten',
+        'footer-line2': 'Tel: +49 941 37847200 • E-Mail: tobolin@marawe.de • www.tobolin.de',
+        'footer-line3': 'Copyright © TOBOLIN – Alle Rechte vorbehalten',
         'review-link': 'https://www.amazon.de/review/create-review/?asin='
       },
       en: {
@@ -385,10 +320,10 @@
         'btn-open': 'Open',
         'label-language': 'Language:',
         'social-line1': 'Grow with us and become part of the community!',
-        'social-line2': 'The TIFOO team says thank you!',
+        'social-line2': 'The TOBOLIN team says thank you!',
         'footer-line1': 'MARAWE GmbH & Co. KG • An der Irler Höhe 3b • 93055 Regensburg',
-        'footer-line2': 'Phone: +49 941 37847200 • Email: tifoo@marawe.de • www.tifoo.de/en',
-        'footer-line3': 'Copyright © TIFOO – All rights reserved',
+        'footer-line2': 'Phone: +49 941 37847200 • Email: tobolin@marawe.de • www.tobolin.de',
+        'footer-line3': 'Copyright © TOBOLIN – All rights reserved',
         'review-link': 'https://www.amazon.com/review/create-review/?asin='
       },
       it: {
@@ -404,10 +339,10 @@
         'btn-open': 'Apri',
         'label-language': 'Lingua:',
         'social-line1': 'Crescete con noi e diventate parte della community!',
-        'social-line2': 'Il team TIFOO vi ringrazia!',
+        'social-line2': 'Il team TOBOLIN vi ringrazia!',
         'footer-line1': 'MARAWE GmbH & Co. KG • An der Irler Höhe 3b • 93055 Regensburg',
-        'footer-line2': 'Tel: +49 941 37847200 • Email: tifoo@marawe.de • www.tifoo.de/it',
-        'footer-line3': 'Copyright © TIFOO – Tutti i diritti riservati',
+        'footer-line2': 'Tel: +49 941 37847200 • Email: tobolin@marawe.de • www.tobolin.de',
+        'footer-line3': 'Copyright © TOBOLIN – Tutti i diritti riservati',
         'review-link': 'https://www.amazon.it/review/create-review/?asin='
       },
       fr: {
@@ -423,10 +358,10 @@
         'btn-open': 'Ouvrir',
         'label-language': 'Langue :',
         'social-line1': 'Grandissez avec nous et rejoignez la communauté !',
-        'social-line2': 'L\'équipe TIFOO vous remercie !',
+        'social-line2': 'L\'équipe TOBOLIN vous remercie !',
         'footer-line1': 'MARAWE GmbH & Co. KG • An der Irler Höhe 3b • 93055 Regensburg',
-        'footer-line2': 'Tél. : +49 941 37847200 • Email : tifoo@marawe.de • www.tifoo.de/fr',
-        'footer-line3': 'Copyright © TIFOO – Tous droits réservés',
+        'footer-line2': 'Tél. : +49 941 37847200 • Email : tobolin@marawe.de • www.tobolin.de',
+        'footer-line3': 'Copyright © TOBOLIN – Tous droits réservés',
         'review-link': 'https://www.amazon.fr/review/create-review/?asin='
       },
       es: {
@@ -442,10 +377,10 @@
         'btn-open': 'Abrir',
         'label-language': 'Idioma:',
         'social-line1': 'Crece con nosotros y sé parte de la comunidad!',
-        'social-line2': '¡El equipo TIFOO dice gracias!',
+        'social-line2': '¡El equipo TOBOLIN dice gracias!',
         'footer-line1': 'MARAWE GmbH & Co. KG • An der Irler Höhe 3b • 93055 Regensburg',
-        'footer-line2': 'Tel: +49 941 37847200 • Correo: tifoo@marawe.de • www.tifoo.de/es',
-        'footer-line3': 'Copyright © TIFOO – Todos los derechos reservados',
+        'footer-line2': 'Tel: +49 941 37847200 • Correo: tobolin@marawe.de • www.tobolin.de',
+        'footer-line3': 'Copyright © TOBOLIN – Todos los derechos reservados',
         'review-link': 'https://www.amazon.es/review/create-review/?asin='
       }
     };
