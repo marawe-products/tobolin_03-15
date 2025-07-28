@@ -471,9 +471,10 @@
       localStorage.setItem('lang', lang);
     });
 
-    const storedLang = localStorage.getItem('lang') || 'de';
-    document.getElementById('lang-select').value = storedLang;
-    updateContent(storedLang);
+    // Immer Deutsch als Startsprache
+const initialLang = 'de';
+document.getElementById('lang-select').value = initialLang;
+updateContent(initialLang);
   </script>
 </body>
 </html>
